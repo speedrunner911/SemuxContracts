@@ -10,6 +10,7 @@ contract autoVoteContract {
 
 	function sendVote(uint amount) {
 		// no fee call
+		require(msg.sender == owner);
 		require(0x0000000000000000000000000000000000000064.call(delegate, amount));
 	}
 	
@@ -20,6 +21,7 @@ contract autoVoteContract {
 	}
 
 	function unVote(uint amount) {
+		require(msg.sender == owner);
 		require(0x0000000000000000000000000000000000000065.call(delegate, amount));
 	}
 
